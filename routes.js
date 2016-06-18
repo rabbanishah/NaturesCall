@@ -1,7 +1,9 @@
 var places = require('./places.js')
 module.exports = function(app) {
-    app.get('/', function(req, res) {
-        places('13.0311', '77.5652', function(details) {
+    app.get('/query', function(req, res) {
+    	var lat = req.query.lat
+    	var lng = req.query.lng
+        places(lat, lng , function(details) {
             res.end(JSON.stringify(details))
         })
     });
