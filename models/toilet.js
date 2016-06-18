@@ -3,15 +3,16 @@ var mongoose = require('mongoose');
 //defining the schema of the DB
 var toiletSchema = mongoose.Schema({
     place_id: String,
-    name: String,
-    pee: String,
-    poop: String,
-    clean: String,
-    access: String,
-    rate: String
+    //name: String,
+    // pee: String,
+    // poop: String,
+    // clean: String,
+    // access: String,
+    rate: String,
+    numberOfRating: Number
 });
 
-toiletSchema.statics.exists = function(place_id, iter, callback) {
+toiletSchema.statics.exists = function(place_id, callback) {
 
     this.model('Toilet').count({place_id: place_id}, function (err, count) {
         if(err) {
@@ -22,9 +23,9 @@ toiletSchema.statics.exists = function(place_id, iter, callback) {
         //console.log(iter)
         //console.log("checking exists")
         if(count > 0)  {
-            callback(null,iter, true);
+            callback(null, true);
         }else {
-            callback(null,iter, false);
+            callback(null, false);
         }
     } );
 }
