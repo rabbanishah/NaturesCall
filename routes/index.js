@@ -4,6 +4,7 @@ var Toilet = mongoose.model('Toilet');
 var promise = require('promise');
 
 module.exports = function(app) {
+
     app.get('/query', function(req, res) {
             var lat = req.query.lat
             var lng = req.query.lng
@@ -85,6 +86,12 @@ module.exports = function(app) {
 
             })
     });
+    app.get('/addRating', function(req, res) {
+        res.end("done")
+    })
+    app.get('*', function(req, res) {
+        res.end("done")
+    })
 }
 // toilet={}
 // toilet.place_id = details.place_id
