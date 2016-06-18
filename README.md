@@ -22,3 +22,38 @@ The application is built on the **MEAN Stack** framework. It uses the following 
 > **Note:**
 
 >  Node.js version 4.4.5 was used for development and testing. Newer versions have not been tested yet. 
+
+#### <i class="icon-cog"></i> Installation
+
+The application can be set up on a a linux machine in 4 steps. press <kbd>Alt+Cltr+T</kbd> and run the following commands.
+
+ 1. Install Node.js using the Node.js 4.4.x PPA
+
+		$ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -`
+		$  sudo apt-get install -y nodejs
+
+ 2. Install MongoDB
+
+		$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927`
+		$ echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+		$ sudo apt-get update
+		$ sudo apt-get install -y mongodb-org
+
+ 3. Install npm (node package manager)
+		 
+		 $ sudo apt-get install npm
+
+ 4. Run command to download all required modules
+			
+		$  npm install
+
+
+#### <i class="icon-download"></i> Getting Started
+
+The application can be started by running the command
+
+    $ nodejs server.js
+
+the server can be accessed at 
+
+    localhost:[port_number]
