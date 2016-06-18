@@ -10,7 +10,7 @@ module.exports = function(lat,lon,callback) {
     var rankby = 'distance'
     var keyword = 'McDonalds'
     var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + lat + ',' + lon + '&radius=' + radius + '&name=' + name + '&key=' + API_KEY
-    console.log(url)
+    //console.log(url)
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             // Show the HTML for the Google homepage.
@@ -22,7 +22,7 @@ module.exports = function(lat,lon,callback) {
             for (var i = 0; i < places.length; i++) {
                 temp = {}
                 temp.name = places[i].name
-                temp.type = places[i].types
+                //temp.type = places[i].types
                 temp.location = places[i].geometry.location
                 temp.place_id = places[i].place_id
                 temp.distance = geolib.getDistance({
@@ -36,8 +36,6 @@ module.exports = function(lat,lon,callback) {
                 details.push(temp)
                 temp.clear
             }
-            //console.log(details)
-            //console.log(sortDist(details))
             details.sort(function(a, b) {
                 return parseFloat(a.distance) - parseFloat(b.distance)
             })
