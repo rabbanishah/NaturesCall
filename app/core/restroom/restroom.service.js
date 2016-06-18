@@ -3,7 +3,7 @@ angular.
   factory('Restroom', ['$resource', '$q', 'Location',
     function($resource, $q, Location) {
       return Location.getLocation.then(function (locationData) {
-        return $resource('http://139.59.9.45:3000/query', {}, {
+        return $resource('/query', {}, {
           query: {
             method: 'GET',
             params: {lat: locationData.coords.latitude, lng: locationData.coords.longitude},
