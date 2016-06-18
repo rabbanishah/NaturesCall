@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="app.animations.css" />
 -->
-
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJmXtWOK5DMUfAawRF2NCNLDkgJxjTkjY"></script>
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
@@ -30,8 +30,12 @@
   <script src="core/restroom/restroom.service.js"></script>
   <script src="core/location/location.module.js"></script>
   <script src="core/location/location.service.js"></script>
+  <style type="text/css">
+    html, body { height: 100%; margin: 0; padding: 0; }
+    #map { height: 100%; }
+  </style>
 </head>
 <body>
-    <div ng-view></div>
+    <div ng-view style="height: 100%;"></div>
 </body>
 </html>
