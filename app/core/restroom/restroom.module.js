@@ -1,0 +1,1 @@
+angular.module('core.restroom', ['ngResource', 'core.location']);
