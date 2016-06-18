@@ -19,8 +19,8 @@ toiletSchema.statics.exists = function(place_id, iter, callback) {
             callback(err,iter, null)
             return;
         }
-        console.log(iter)
-        console.log("checking exists")
+        //console.log(iter)
+        //console.log("checking exists")
         if(count > 0)  {
             callback(null,iter, true);
         }else {
