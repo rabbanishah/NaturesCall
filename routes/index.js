@@ -61,7 +61,7 @@ module.exports = function(app) {
                 }, function(err, doc) {
                     var sum = (parseFloat(doc.rate) * doc.numberOfRating) + parseFloat(rate)
                     doc.numberOfRating = doc.numberOfRating + 1
-                    doc.rate = sum / doc.numberOfRating
+                    doc.rate = (sum / doc.numberOfRating).toFixed(2)
                     Toilet.updateToilet(doc, function(err, numAffected) {
                         if (err) {
                             console.log("error review")
