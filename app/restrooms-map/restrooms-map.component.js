@@ -30,7 +30,10 @@ angular.
             marker.addListener('click', function() {
               console.log("Clicked");
               infowindow.close();
-              infowindow.setContent('<div><strong>' + this.location.name + '</strong><br>');
+              infowindow.setContent('<div><strong>' + this.location.name 
+                                    + '</strong><br>' 
+                                    + '<a href=geo:' + this.location.location.lat + "," + this.location.location.lng +
+                                    '>Get Directions</a>(' + this.location.name + ')');
               infowindow.open(map, this);
             })
             //infowindow.open(map, marker);
