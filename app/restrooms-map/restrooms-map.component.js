@@ -30,10 +30,14 @@ angular.
             marker.addListener('click', function() {
               console.log("Clicked");
               infowindow.close();
+          
+//              infowindow.setContent('<div><strong>' + this.location.name 
+//                                    + '</strong><br>' 
+//                                    + '<a href=geo:' + this.location.location.lat + "," + this.location.location.lng + '(' + this.location.name + ')' +
+//                                    '>Get Directions</a>');
               infowindow.setContent('<div><strong>' + this.location.name 
                                     + '</strong><br>' 
-                                    + '<a href=geo:' + this.location.location.lat + "," + this.location.location.lng +
-                                    '>Get Directions</a>(' + this.location.name + ')');
+                                    + '<a href="https://maps.google.com/maps?q=loc:'+this.location.location.lat+','+this.location.location.lng+'">Get Directions</a>');
               infowindow.open(map, this);
             })
             //infowindow.open(map, marker);
