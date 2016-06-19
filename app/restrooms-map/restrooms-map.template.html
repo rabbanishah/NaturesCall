@@ -1,9 +1,19 @@
 <div id="map"></div><br />
 <div class="container">
-    <div ng-repeat="location in $ctrl.locations">
-        <div align="center" class="well"><a href="https://maps.google.com/maps?q=loc:{{location.location.lat}},{{location.location.lng}}" onclick="window.open('feedback.html')" >
-            {{location.name}} <small>(distanece {{location.distance}} meters)</small><br/>
-            Ratings : {{location.rate}}</a>
+    <div ng-repeat="location in $ctrl.locations" ng-click="giveFeedback(location)">
+        <div align="center" class="well">
+            {{location.name}} <small>(distance {{location.distance}} meters)</small><br/>
+            Ratings : {{location.rate}}
+        </div>
+        <div ng-show="location.clicked">
+          <select ng-model="location.rate">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button ng-click="submitFeedback(location)">Submit</button>
         </div>
     </div>
 </div>

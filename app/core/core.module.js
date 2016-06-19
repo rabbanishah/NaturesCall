@@ -1,1 +1,1 @@
-angular.module('core', ['core.restroom', 'core.location']);
+angular.module('core', ['core.restroom', 'core.location', 'core.feedback']);

@@ -4,8 +4,15 @@ angular.
   module('restroomsMap').
   component('restroomsMap', {
     templateUrl: 'restrooms-map/restrooms-map.template.html',
-    controller: ['$window', 'Restroom', 'Location',
-      function RestroomsMapController($window, Restroom, Location) {
+    controller: ['$scope', '$location', '$window', 'Restroom', 'Location', 'Feedback',
+      function RestroomsMapController($scope, $location, $window, Restroom, Location, Feedback) {
+        $scope.giveFeedback = function(restroom) {
+          restroom.clicked = true;
+        }
+        $scope.submitFeedback = function(restroom) {
+          console.log("Feedback submitted");
+          Feedback.get({place_id: restroom.place_id, rate: restroom.rate});
+        }
         var self = this;
         Restroom.then(function(data) {
           console.log(data);
@@ -13,7 +20,7 @@ angular.
           var map = new google.maps.Map(document.getElementById('map'), {
             center: data.center,
             scrollwheel: false,
-            zoom: 16
+            zoom: 16,
           });
           console.log("Drew map");
           var infowindows = [];
@@ -22,7 +29,8 @@ angular.
             var marker = new google.maps.Marker({
               map: map,
               position: data.locations[i].location,
-              title: data.locations[i].name
+              title: data.locations[i].name,
+              icon: 'icons/natures-call.png'
             });
             var infowindow = new google.maps.InfoWindow();
             infowindows.push(infowindow);
@@ -30,19 +38,18 @@ angular.
             marker.addListener('click', function() {
               console.log("Clicked");
               infowindow.close();
-          
-//              infowindow.setContent('<div><strong>' + this.location.name 
-//                                    + '</strong><br>' 
-//                                    + '<a href=geo:' + this.location.location.lat + "," + this.location.location.lng + '(' + this.location.name + ')' +
-//                                    '>Get Directions</a>');
               infowindow.setContent('<div><strong>' + this.location.name 
                                     + '</strong><br>' 
                                     + '<a href="https://maps.google.com/maps?q=loc:'+this.location.location.lat+','+this.location.location.lng+'">Get Directions</a>');
               infowindow.open(map, this);
             })
-            //infowindow.open(map, marker);
           }
-
+          var myLocation = new google.maps.Marker({
+              map: map,
+              position: data.center,
+              title: 'My location',
+              icon: 'icons/bullet_blue.png'
+          });
         })
         
       }]

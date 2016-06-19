@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('restroomsMap', ['ngRoute', 'core.restroom', 'core.location']);
+angular.module('restroomsMap', ['ngRoute', 'core.restroom', 'core.location', 'core.feedback']);
