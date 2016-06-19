@@ -7,11 +7,16 @@ angular.
     controller: ['$scope', '$location', '$window', 'Restroom', 'Location', 'Feedback',
       function RestroomsMapController($scope, $location, $window, Restroom, Location, Feedback) {
         $scope.giveFeedback = function(restroom) {
-          restroom.clicked = true;
+          if (!restroom.clicked) {
+            restroom.clicked = true;
+            $window.open('https://maps.google.com/maps?q=loc:'+this.location.location.lat+','+this.location.location.lng);
+          }
+          
         }
         $scope.submitFeedback = function(restroom) {
           console.log("Feedback submitted");
           Feedback.get({place_id: restroom.place_id, rate: restroom.rate});
+          restroom.submitted = true;
         }
         var self = this;
         Restroom.then(function(data) {

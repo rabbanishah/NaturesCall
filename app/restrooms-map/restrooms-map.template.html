@@ -1,11 +1,13 @@
 <div id="map"></div><br />
 <div class="container">
-    <div ng-repeat="location in $ctrl.locations" ng-click="giveFeedback(location)">
+    <div ng-repeat="location in $ctrl.locations" ng-click="!clicked && giveFeedback(location)">
         <div align="center" class="well">
             {{location.name}} <small>(distance {{location.distance}} meters)</small><br/>
-            Ratings : {{location.rate}}
-        </div>
-        <div ng-show="location.clicked">
+            <div ng-show="location.rate != -1">
+              Ratings : {{location.rate}}
+            </div>
+          <div ng-show="location.clicked && !location.submitted">
+            <i>How would you rate your experience? </i>
           <select ng-model="location.rate">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -15,5 +17,10 @@
           </select>
           <button ng-click="submitFeedback(location)">Submit</button>
         </div>
+          <div ng-show="location.submitted">
+            Thank you for your feedback!
+          </div>
+        </div>
+        
     </div>
 </div>
