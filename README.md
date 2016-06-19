@@ -1,7 +1,7 @@
 Nature's Call!
 ===========
 
-This project **'Nature's Call'** aims to fulfill the physiological need of every traveler. All of us have been in situations where we want to rush to a washroom, instead of manually searching for washroom facilities, we provide a web-app that makes it simple for travelers to find washrooms.
+This project **'Nature's Call'** aims to fulfill the physiological need of every traveler. All of us have been in situations where we want to rush to a washroom, instead of manually searching for washroom facilities, we provide a mobile web-app that makes it simple for travelers to find washrooms.
 
 ----------
 Implementation
@@ -21,7 +21,7 @@ The application is built on the **MEAN Stack** framework. It uses the following 
 
 > **Note:**
 
->  Node.js version 4.4.5 was used for development and testing. Newer versions have not been tested yet. 
+>  Node.js version 4.4.5 was used for development and testing. Newer versions have not been tested yet. Made to work with mobile phones on firefox browser. Chrome users can not share location to websites without SSL certificates. 
 
 #### <i class="icon-cog"></i> Installation
 
