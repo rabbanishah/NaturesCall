@@ -1,4 +1,9 @@
-<li ng-repeat="location in $ctrl.locations">
-   {{location.name}}
-</li>
-<div id="map"></div>
+<div id="map"></div><br />
+<div class="container">
+    <div ng-repeat="location in $ctrl.locations">
+        <div align="center" class="well"><a href="https://maps.google.com/maps?q=loc:{{location.location.lat}},{{location.location.lng}}" onclick="window.open('feedback.html')" >
+            {{location.name}} <small>(distanece {{location.distance}} meters)</small><br/>
+            Ratings : {{location.rate}}</a>
+        </div>
+    </div>
+</div>
